@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: reactdemo-deployment
+  labels:
+    app: reactdemo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: reactdemo
+  template:
+    metadata:
+      labels:
+        app: reactdemo
+    spec:
+      hostNetwork: true
+      containers:
+      - name: reactdemo
+        image: reactdemo
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: reactdemo-service
+spec:
+  selector:
+    app: reactdemo
+  ports:
+  - port: 3000
+    protocol: TCP
+    targetPort: 80
+  type: LoadBalancer
