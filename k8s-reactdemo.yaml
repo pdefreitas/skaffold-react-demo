@@ -9,15 +9,25 @@ spec:
   selector:
     matchLabels:
       app: reactdemo
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+        maxSurge: 0
   template:
     metadata:
       labels:
         app: reactdemo
     spec:
-      hostNetwork: true
       containers:
       - name: reactdemo
         image: reactdemo
+        env:
+        - name: PORT
+          value: "3000"
+        - name: CI
+          value: "true"
+        - name: NODE_ENV
+          value: "development"
         ports:
         - containerPort: 3000
           protocol: TCP
@@ -30,7 +40,7 @@ spec:
   selector:
     app: reactdemo
   ports:
-  - port: 3000
+  - port: 8080
     protocol: TCP
-    targetPort: 80
+    targetPort: 3000
   type: LoadBalancer

@@ -3,6 +3,13 @@ kind: Config
 build:
   artifacts:
   - image: reactdemo
+    context: .
+    sync:
+      manual:
+        - src: './react-demo/public/**/*'
+          dest: /app/public/
+        - src: './react-demo/src/**/*'
+          dest: /app/src/
 deploy:
   kubectl:
     manifests:

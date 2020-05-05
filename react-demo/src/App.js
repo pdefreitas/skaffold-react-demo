@@ -12,11 +12,11 @@ function App() {
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="https://kubernetes.io/"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React & Kubernetes !
         </a>
       </header>
     </div>

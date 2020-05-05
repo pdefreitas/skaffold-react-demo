@@ -11,6 +11,7 @@ ENV PATH /app/node_modules/.bin:$PATH
 COPY ./react-demo ./
 
 RUN npm install --silent
+RUN npm install react-scripts -g --silent
 
 # start app
 CMD ["npm", "start"]

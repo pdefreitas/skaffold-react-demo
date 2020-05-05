@@ -1,0 +1,9 @@
+react-demo/node_modules
+react-demo/build
+.dockerignore
+.git
+node_modules
+**/*.swp
+**/*.tsx~
+**/*.swn
+**/*.swo
